@@ -1,0 +1,35 @@
+version: '3.7'
+
+networks:
+  dbnet:
+    external: true
+    name: dbnet
+
+services:
+  ecoshop:
+    image: veekz/m2-secure-coding-app-preproduction:latest
+    container_name: m2-secure-coding-app
+    ports:
+      - "5000:5000"
+    networks:
+      - dbnet
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: tutorial
+      POSTGRES_DB: iam
+      POSTGRES_PASSWORD: privatepassword
+    ports:
+      - 127.0.0.1:5432:5432
+    volumes:
+      - ./docker/postgres:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    links:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: privatepassword
+    ports:
+      - 127.0.0.1:8000:80
