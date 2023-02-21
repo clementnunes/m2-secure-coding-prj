@@ -10,9 +10,11 @@ services:
     image: veekz/m2-secure-coding-app-preproduction:latest
     container_name: m2-secure-coding-app
     ports:
-      - "5000:5000"
+      - "5000:3000"
     networks:
       - dbnet
+    environment:
+      DB_HOST: host.docker.internal
   postgres:
     image: postgres
     environment:
