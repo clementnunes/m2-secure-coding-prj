@@ -23,6 +23,8 @@ services:
       - 127.0.0.1:5432:5432
     volumes:
       - ./docker/postgres:/var/lib/postgresql/data
+    networks:
+      - dbnet
 
   pgadmin:
     image: dpage/pgadmin4
@@ -33,3 +35,5 @@ services:
       PGADMIN_DEFAULT_PASSWORD: privatepassword
     ports:
       - 127.0.0.1:8000:80
+    networks:
+      - dbnet
