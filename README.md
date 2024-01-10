@@ -4,7 +4,7 @@
 
 ## Overview
 
-m2-secure-coding-prj is a project that aims to use CI/CD practises, for Secure Coding Module - Software Engineering @ EFREI.\
+m2-secure-coding-prj is a project that aims to use CI/CD practises, for Secure Coding Module - Software Engineering @ EFREI.
   
 ## Table of Contents
 
